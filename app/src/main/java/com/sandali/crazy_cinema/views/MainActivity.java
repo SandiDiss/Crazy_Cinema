@@ -11,7 +11,7 @@ import com.sandali.crazy_cinema.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static int SPLASH_TIME_OUT= 9000;
+    private static int SPLASH_TIME_OUT= 9650;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

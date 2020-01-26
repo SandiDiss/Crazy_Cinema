@@ -91,8 +91,8 @@ public class MovieListActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu,menu);
 
-        menuItem = menu.findItem(R.id.action_search).setVisible(false);
-        menuItem = menu.findItem(R.id.action_home).setVisible(false);
+        menuItem = menu.findItem(R.id.action_refresh).setVisible(true);
+        menuItem = menu.findItem(R.id.action_home).setVisible(true);
         return super.onCreateOptionsMenu(menu);
 
 
@@ -107,6 +107,11 @@ public class MovieListActivity extends AppCompatActivity {
             case R.id.action_home:
 
                 startActivity(new Intent(this, MovieListActivity.class));
+                break;
+
+            case R.id.action_refresh:
+
+                startActivity(new Intent(this, LoginActivity.class));
                 break;
 
             case R.id.LogOut:

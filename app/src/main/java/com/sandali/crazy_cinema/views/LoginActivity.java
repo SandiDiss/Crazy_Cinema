@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         emailEditText = (EditText) findViewById(R.id.emailEditText);
         passwordEditText = (EditText) findViewById(R.id.passwordEditText);
-        textViewSignUp = (TextView) findViewById(R.id.textViewSignUp);
+       // textViewSignUp = (TextView) findViewById(R.id.textViewSignUp);
         btnSignin =(Button) findViewById(R.id.btnSignin);
         rCheckBox =(CheckBox) findViewById(R.id.rCheckBox);
 
@@ -59,7 +59,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         rEditor = rPreferences.edit();
 
         btnSignin.setOnClickListener((View.OnClickListener) this);
-        textViewSignUp.setOnClickListener((View.OnClickListener) this);
+       // textViewSignUp.setOnClickListener((View.OnClickListener) this);
 
 
         checkSharedPreferences();
