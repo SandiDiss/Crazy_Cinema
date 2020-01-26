@@ -122,7 +122,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         if(view==btnSignin){
             finish();
-            //startActivity(new Intent(this,HomeActivity.class));
+            startActivity(new Intent(this,MovieListActivity.class));
         }
         if(rCheckBox.isChecked())
         {

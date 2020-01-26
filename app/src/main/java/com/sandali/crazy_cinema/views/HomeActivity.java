@@ -14,8 +14,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.example.movie_app.adapter.MoviesAdapter;
-import com.example.movie_app.model.Movie;
+//import com.example.movie_app.adapter.MoviesAdapter;
+//import com.example.movie_app.model.Movie;
 import com.sandali.crazy_cinema.R;
 
 import java.util.ArrayList;
