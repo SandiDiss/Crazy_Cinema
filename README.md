@@ -11,4 +11,4 @@
 
 ## Usage
 
-The main use of this application is that the user has the ability to select movies out of the given details. Also this application has an attractive user interface. There is a dummy login where the username and passord has been hardcoded in the firebase console.
+The main use of this application is that the user has the ability to select movies out of the given details. Also this application has an attractive user interface. For the splash screen the developer has created a GIF and added in the interface. There is a dummy login where the username and passord has been hardcoded in the firebase console.
