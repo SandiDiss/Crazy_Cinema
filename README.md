@@ -1,7 +1,8 @@
 # Crazy_Cinema
 
 "Crazy Cinema" is an android application which has been developed for movie selection. It has a collection of latest movies and their details such as year, title, id. The movies have been fetched from OMDB website. 
-![Alt Text](url)
+
+![](https://github.com/SandiDiss/Crazy_Cinema/blob/master/doc_references/sc1.jpg)
 
 ## Usage
 
