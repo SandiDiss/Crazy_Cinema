@@ -2,11 +2,25 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!--android:icon="@drawable/ic_search_black_24dp"-->
+
+<!--    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/ic_search_black_24dp"
+        android:title="Search"
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="ifRoom"
+        />-->
+  <!--  <item
+        android:icon="@drawable/ic_search_black_24dp"
+        android:id="@+id/action_search"
+        android:title="Search"
+        app:showAsAction="never"
+        />-->
+
 
     <item
-        android:id="@+id/action_home"
-        android:title="Home"
+        android:id="@+id/action_search"
+        android:title="Search"
         app:showAsAction="never"
         />
 
@@ -21,8 +35,5 @@
         app:showAsAction="never"></item>
 
     <!--android:title="@string/LogOut_name"-->
-
-
-
 </menu>
 

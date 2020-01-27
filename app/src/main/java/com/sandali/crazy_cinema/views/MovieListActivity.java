@@ -22,8 +22,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -52,13 +54,27 @@ public class MovieListActivity extends AppCompatActivity {
     private ListView lv;
     private FirebaseAuth firebaseAuth;
     MenuItem menuItem;
+    public String keyword = "transformers";
+    private EditText searchEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_movie_list);
+        setContentView(R.layout.activity_list);
         theMovieList = new ArrayList<>();
         lv = (ListView) findViewById(R.id.list);
+/*         search = (SearchView) findViewById(R.id.app_bar_search);
+       search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+            @Override
+            public boolean onQueryTextChange(String text) {
+                keyword = text;
+                return false;
+            }
+        });*/
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -78,12 +94,6 @@ public class MovieListActivity extends AppCompatActivity {
             StrictMode.setThreadPolicy(policy);
         }
 
-        // String API_Output = HttpHandler();
-        //System.out.println("This is ouside function : " + API_Output);
-        //TextView textView = findViewById(R.id.textView);
-        //textView.setText(API_Output);
-
-//        initmovieData();
     }
 
     @Override
@@ -92,7 +102,7 @@ public class MovieListActivity extends AppCompatActivity {
         inflater.inflate(R.menu.menu,menu);
 
         menuItem = menu.findItem(R.id.action_refresh).setVisible(true);
-        menuItem = menu.findItem(R.id.action_home).setVisible(true);
+        menuItem = menu.findItem(R.id.action_search).setVisible(true);
         return super.onCreateOptionsMenu(menu);
 
 
@@ -104,14 +114,16 @@ public class MovieListActivity extends AppCompatActivity {
 
         switch (item.getItemId()){
 
-            case R.id.action_home:
-
-                startActivity(new Intent(this, MovieListActivity.class));
+            case R.id.action_search:
+                Intent newIntent = new Intent(this, MovieListActivity.class);
+                startActivity(newIntent);
+/*                searchEditText = (EditText) findViewById(R.id.searchText);
+                keyword = searchEditText.toString();*/
                 break;
 
             case R.id.action_refresh:
 
-                startActivity(new Intent(this, LoginActivity.class));
+                startActivity(new Intent(this, MovieListActivity.class));
                 break;
 
             case R.id.LogOut:
@@ -129,16 +141,12 @@ public class MovieListActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            Toast.makeText(MovieListActivity.this,"Json Data is downloading",Toast.LENGTH_LONG).show();
+            //Toast.makeText(MovieListActivity.this,"Json Data is downloading",Toast.LENGTH_LONG).show();
 
         }
 
         protected Void doInBackground(Void... arg0) {
-            String jsonStr = HttpHandler();
-            // Making a request to url and getting response
-            //String url = "http://api.androidhive.info/contacts/";
-            //String jsonStr = sh.makeServiceCall(url);
-
+            String jsonStr = HttpHandler(keyword);
             Log.e(TAG, "Response from url: " + jsonStr);
             if (jsonStr != null) {
                 try {
@@ -155,13 +163,8 @@ public class MovieListActivity extends AppCompatActivity {
                         String imdbID = c.getString("imdbID");
                         String type = c.getString("Type");
 
-                        // Phone node is JSON Object
-/*                    JSONObject phone = c.getJSONObject("phone");
-                    String mobile = phone.getString("mobile");
-                    String home = phone.getString("home");
-                    String office = phone.getString("office");*/
 
-                        // tmp hash map for single contact
+                        // tmp hash map for single movie
                         HashMap<String, String> movies = new HashMap<>();
 
                         // adding each child node to HashMap key => value
@@ -170,7 +173,7 @@ public class MovieListActivity extends AppCompatActivity {
                         movies.put("imdbID", imdbID);
                         movies.put("Type", type);
 
-                        // adding contact to contact list
+                        // adding movie to movie list
                         theMovieList.add(movies);
                     }
                 } catch (final JSONException e) {
@@ -209,13 +212,11 @@ public class MovieListActivity extends AppCompatActivity {
             lv.setAdapter(adapter);
         }
 
-        protected String HttpHandler() {
+        protected String HttpHandler(String keyword) {
             String api_url = "http://www.omdbapi.com/?apikey=";
             String API_KEY = "2f9c3869";
-            // Do some validation here
-
             try {
-                URL url = new URL(api_url + API_KEY+"&s=transformers");
+                URL url = new URL(api_url + API_KEY+"&s=" + keyword);
 
 
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
