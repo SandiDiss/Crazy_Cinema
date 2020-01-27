@@ -108,9 +108,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 if(task.isSuccessful())
                 {
                     //start the profile
-//                    Intent FirstIntent = new Intent(LoginActivity.this, HomeActivity.class);
-//                    startActivity(FirstIntent);
-//                    finish();
+                    Intent FirstIntent = new Intent(LoginActivity.this, MovieListActivity.class);
+                    startActivity(FirstIntent);
+                    finish();
                 }
             }
         });
@@ -121,8 +121,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
 
         if(view==btnSignin){
-            finish();
-            startActivity(new Intent(this,MovieListActivity.class));
+            UserLogin();
+//            finish();
+//            startActivity(new Intent(this,MovieListActivity.class));
         }
         if(rCheckBox.isChecked())
         {
