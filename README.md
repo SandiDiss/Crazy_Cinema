@@ -6,7 +6,7 @@
 
 ![](https://github.com/SandiDiss/Crazy_Cinema/blob/master/doc_references/sc2.jpg)
 
-![](https://github.com/SandiDiss/Crazy_Cinema/blob/master/doc_references/sc3.jpg)
+![](https://github.com/SandiDiss/Crazy_Cinema/blob/master/doc_references/scNew.jpg)
 
 
 ## Usage
