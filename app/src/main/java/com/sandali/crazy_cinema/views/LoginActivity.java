@@ -112,6 +112,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     startActivity(FirstIntent);
                     finish();
                 }
+                else{
+                    Toast.makeText(LoginActivity.this,"Email or Password is incorrect",Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
@@ -121,9 +124,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
 
         if(view==btnSignin){
-            //UserLogin();
-            finish();
-            startActivity(new Intent(this,MovieListActivity.class));
+            UserLogin();
+            //finish();
+            //startActivity(new Intent(this,MovieListActivity.class));
         }
         if(rCheckBox.isChecked())
         {
