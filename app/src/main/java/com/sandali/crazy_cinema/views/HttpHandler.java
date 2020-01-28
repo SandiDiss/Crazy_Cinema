@@ -10,6 +10,7 @@ public class HttpHandler {
         String api_url = "http://www.omdbapi.com/?apikey=";
         String API_KEY = "2f9c3869";
         try {
+            // constructing the URL
             URL url = new URL(api_url + API_KEY+"&s=" + keyword);
 
 
